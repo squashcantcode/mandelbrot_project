@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <iostream>
+
 using namespace sf;
 using namespace std;
 
@@ -11,65 +12,6 @@ int main()
     aspectRatio.x = VideoMode::getDesktopMode().width;
     aspectRatio.y = VideoMode::getDesktopMode().height;
 
-    // Calculate the aspect ratio of the monitor
-     double aspectRatio_Result = aspectRatio.y / aspectRatio.x;
-
-	// Create and open a window for the game
-    RenderWindow window(aspectRatio_Result, "Mandelbrot", Style::Fullscreen);
-
-    Vector2f v = {1,1};
-    RectangleShape rect(Vector2f{20,10});
-
-    vector<Vector2f> vertices;
-    vector<Vector2f> points;
-
-    Vector2f clicked;
-
-    Event event;
-
-    while (window.pollEvent(event))
-    {
-        if (event.type == sf::Event::Closed)
-        {
-            window.close();
-        }
-
-        if (event.type == sf::Event::MouseButtonPressed)
-        {       
-            if (event.mouseButton.button == sf::Mouse::Left)
-            {
-                std::cout << "the left button was pressed" << std::endl;
-                std::cout << "mouse x: " << event.mouseButton.x << std::endl;
-                std::cout << "mouse y: " << event.mouseButton.y << std::endl;
-
-                clicked.x = event.mouseButton.x;
-                clicked.y = event.mouseButton.y;
-            }
-        }
-    }
-
-    while (window.isOpen())
-	{
-		/*
-		****************************************
-		Handle the players input
-		****************************************
-		*/
-        
-		if (Keyboard::isKeyPressed(Keyboard::Escape))
-		{
-			window.close();
-		}
-
-        rect.setPosition(clicked.x, clicked.y);
-        rect.setFillColor(Color::Red);
-
-        // Clear everything from the last frame
-            window.clear();
-        // Draw our game scene here
-		    window.draw(rect);
-        // Show everything we just drew
-		    window.display();
-    }
-    return 0;
+    // Construct a vertex array
+    PrimitiveType getPrimitiveType(Points);
 }

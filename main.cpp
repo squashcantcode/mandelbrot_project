@@ -7,15 +7,15 @@ using namespace std;
 int main()
 {
     // Create a video mode object
-    Vector2F aspectRatio;
+    Vector2f aspectRatio;
     aspectRatio.x = VideoMode::getDesktopMode().width;
     aspectRatio.y = VideoMode::getDesktopMode().height;
 
     // Calculate the aspect ratio of the monitor
-    aspectRatio_Result = aspectRatio.y / aspectRatio.x;
+     double aspectRatio_Result = aspectRatio.y / aspectRatio.x;
 
 	// Create and open a window for the game
-    RenderWindow window(, "Game", Style::Fullscreen);
+    RenderWindow window(aspectRatio_Result, "Mandelbrot", Style::Fullscreen);
 
     Vector2f v = {1,1};
     RectangleShape rect(Vector2f{20,10});

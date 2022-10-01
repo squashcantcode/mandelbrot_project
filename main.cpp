@@ -9,8 +9,10 @@ int main()
 {
     // Create a video mode object
     Vector2f aspectRatio;
-    aspectRatio.x = VideoMode::getDesktopMode().width;
-    aspectRatio.y = VideoMode::getDesktopMode().height;
+
+    // Get desktop resolution
+    VideoMode::getDesktopMode().width;
+    VideoMode::getDesktopMode().height;
 
     // Construct a vertex array
     PrimitiveType getPrimitiveType(Points);

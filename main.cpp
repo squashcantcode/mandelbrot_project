@@ -21,7 +21,9 @@ int main()
     Vector2f ComplexPlane;
 
     // Construct a vertex array
-    PrimitiveType getPrimitiveType(Points);
+    VertexArray background;
+    background.setPrimitiveType(Points);
+    background.resize(aspectRatio.x * aspectRatio.y);
 
     // Make enum class State variables
     enum class State {CALCULATING, DISPLAYING};
@@ -29,13 +31,60 @@ int main()
     // Initialize it to CALCULATING
     State state = State::CALCULATING;
 
+    // Make event
+    Event event;
+
     // Main game loop
     while(window.isOpen())
     {
-        Event event;
-        if (Keyboard::isKeyPressed(Keyboard::Escape))
-		{
-			window.close();
-		}
-    }
+        while(window.pollEvent(event))
+        {
+            if (event.type == Event::Closed)
+            {
+            window.close();
+            }
+
+            if (event.type == Event::MouseButtonPressed)
+            {
+                window.mapPixelToCoords(Mouse::getPosition());  
+
+                if (event.mouseButton.button == Mouse::Left)
+                {
+                }
+
+                if (event.mouseButton.button == Mouse::Right)
+                {
+                    
+                }
+            }
+
+            if (event.type == Event::MouseMoved)
+            {
+                window.mapPixelToCoord(View.getView());
+            }
+
+            if (Keyboard::isKeyPressed(Keyboard::Escape))
+            {
+                window.close();
+            }
+        }
+
+        // Update scene segment
+        if (state == State::CALCULATING)
+        {
+            for(int j = 0; j < aspectRatio.x; j++)
+            {
+                for(int i = 0; i < aspectRatio.y; i++)
+                {
+                    background[j + i * aspectRatio.x].position = {(float)j, (float)i};
+                }
+                window.mapPixelToCoords(Mouse::getPosition());
+                
+            }
+        }
+        (state == State::DISPLAYING)
+
+        // Draw the scene segment
+        window.clear();
+
 }

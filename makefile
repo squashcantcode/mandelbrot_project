@@ -10,7 +10,7 @@ $(TARGET): $(OBJ_FILES)
     g++ -o $@ $^ $(LDFLAGS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-    g++ $(CXXFLAGS) -c -o $@ $<
+    ++ $(CXXFLAGS) -c -o $@ $<
 
 run:
     ./$(TARGET)

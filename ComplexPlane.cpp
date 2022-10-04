@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <sstream>
 
 #include "ComplexPlane.h"
 
@@ -44,7 +45,10 @@ void ComplexPlane::setMouseLocation(Vector2f coord)
 
 void ComplexPlane::loadText(Text& text)     // Unfinished
 {
+    Text text;
+    Font font;
 
+    font.loadFromFile("fonts/KOMIKAP_.ttf");
 }
 
 size_t ComplexPlane::countIterations(Vector2f coord)        // Unfinished

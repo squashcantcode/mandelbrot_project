@@ -16,7 +16,7 @@ const float BASE_ZOOM = 0.5;
 class ComplexPlane
 {
     public:
-        ComplexPlane::ComplexPlane(float aspectRatio);
+        ComplexPlane(float aspectRatio);
         void zoomIn();
         void zoomOut();
         void setCenter(Vector2f coord);

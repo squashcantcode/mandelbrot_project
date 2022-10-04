@@ -18,7 +18,7 @@ int main()
     RenderWindow window(VideoMode(aspectRatio.x, aspectRatio.y), "Mandelbrot", Style::Fullscreen);
 
     // Construct an object of type ComplexPlane (I might have done it wrong, but we'll see)
-    Vector2f ComplexPlane;
+    ComplexPlane ComplexPlane;
 
     // Construct a vertex array
     VertexArray background;
@@ -78,7 +78,9 @@ int main()
                     background[j + i * aspectRatio.x].position = {(float)j, (float)i};
                 }
                 window.mapPixelToCoords(Mouse::getPosition());
-                                
+                Uint8 r, g, b;
+                background[j + i * aspectRatio.x].color = { r,g,b };
+
             }
         }
         (state == State::DISPLAYING);

@@ -17,14 +17,14 @@ class ComplexPlane
 {
     public:
         ComplexPlane::ComplexPlane(float aspectRatio);
-        void ComplexPlane::zoomIn();
-        void ComplexPlane::zoomOut();
-        void ComplexPlane::setCenter(Vector2f coord);
+        void zoomIn();
+        void zoomOut();
+        void setCenter(Vector2f coord);
         View getView();
-        void ComplexPlane::setMouseLocation(Vector2f coord);
-        void ComplexPlane::loadText(Text& text);
-        size_t ComplexPlane::countIterations(Vector2f coord);
-        void ComplexPlane::iterationsToRGB(size_t count, Uint8& r, Uint8& g, Uint8& b);
+        void setMouseLocation(Vector2f coord);
+        void loadText(Text& text);
+        size_t countIterations(Vector2f coord);
+        void iterationsToRGB(size_t count, Uint8& r, Uint8& g, Uint8& b);
     private:
         Vector2f m_mouseLocation;
         View m_view;

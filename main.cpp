@@ -46,7 +46,7 @@ int main()
 
             if (event.type == Event::MouseButtonPressed)
             {
-                window.mapPixelToCoords(Mouse::getPosition());  
+                window.mapPixelToCoords(Mouse::getPosition(window));  
 
                 if (event.mouseButton.button == Mouse::Left)
                 {
@@ -54,13 +54,12 @@ int main()
 
                 if (event.mouseButton.button == Mouse::Right)
                 {
-                    
                 }
             }
 
             if (event.type == Event::MouseMoved)
             {
-                window.mapPixelToCoord(View.getView());
+                window.mapPixelToCoords(Mouse::getPosition());
             }
 
             if (Keyboard::isKeyPressed(Keyboard::Escape))
@@ -79,12 +78,15 @@ int main()
                     background[j + i * aspectRatio.x].position = {(float)j, (float)i};
                 }
                 window.mapPixelToCoords(Mouse::getPosition());
-                
+                                
             }
         }
-        (state == State::DISPLAYING)
+        (state == State::DISPLAYING);
 
         // Draw the scene segment
         window.clear();
+        window.draw(background);
+        window.draw(text);
+        window.display();
 
 }
